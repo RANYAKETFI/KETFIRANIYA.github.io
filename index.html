@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raniya Ketfi - CV</title>
+    <style>
+        /* CSS Variables for Dark Theme */
+        :root {
+            --bg: #0B1320;
+            --surface: #0D1B2A;
+            --text: #E6EDF3;
+            --muted: #9FB0C3;
+            --accent: #03958A;
+            --divider: #1B2A3A;
+            --card-radius: 1rem;
+        }
+
+        /* Base and Typography */
+        html {
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+
+        *, *::before, *::after {
+            box-sizing: inherit;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: var(--bg);
+            margin: 0;
+            padding: 2rem 1rem;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        main {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            gap: 2rem;
+        }
+
+        section {
+            background-color: var(--surface);
+            padding: 2rem;
+            border-radius: var(--card-radius);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        h1, h2, h3 {
+            color: var(--text);
+            line-height: 1.2;
+            margin-top: 0;
+            font-weight: 600;
+        }
+
+        h1 { font-size: 3rem; }
+        h2 { font-size: 2rem; border-bottom: 2px solid var(--divider); padding-bottom: 0.5rem; margin-bottom: 1.5rem;}
+        h3 { font-size: 1.5rem; }
+
+        p, ul, dl {
+            margin-top: 0;
+            margin-bottom: 1rem;
+            color: var(--muted);
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        ul li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        ul li::before {
+            content: "•";
+            color: var(--accent);
+            position: absolute;
+            left: 0;
+        }
+        
+        /* Utility Classes */
+        .flex-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .grid-layout {
+            display: grid;
+            gap: 2rem;
+        }
+
+        @media (min-width: 768px) {
+            .grid-layout {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* Hero Section */
+        header {
+            text-align: center;
+            padding: 4rem 0;
+        }
+
+        .profile-image {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 3px solid var(--accent);
+            object-fit: cover;
+            margin: 0 auto 1rem;
+        }
+
+        .tagline {
+            font-style: italic;
+            color: var(--muted);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Summary Chips */
+        .chip-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            padding-top: 0.5rem;
+        }
+
+        .chip {
+            background-color: var(--accent);
+            color: var(--bg);
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        /* Skills Section - Charts */
+        .skills-container {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+        
+        .chart-container {
+            background-color: var(--bg);
+            padding: 1.5rem;
+            border-radius: var(--card-radius);
+        }
+        
+        .skill-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .skill-group h3 {
+            margin-bottom: 0.75rem;
+        }
+
+        .tag-cloud {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            padding-top: 0.5rem;
+        }
+
+        .tag-cloud-item {
+            background-color: var(--divider);
+            color: var(--muted);
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            font-size: 0.9rem;
+        }
+
+        /* Experience Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0.5rem;
+            height: 100%;
+            width: 2px;
+            background-color: var(--accent);
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-bottom: 2rem;
+        }
+        
+        .timeline-item:last-child {
+            padding-bottom: 0;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            top: 0.25rem;
+            left: 0.25rem;
+            width: 1rem;
+            height: 1rem;
+            background-color: var(--accent);
+            border-radius: 50%;
+            border: 2px solid var(--surface);
+            z-index: 1;
+        }
+
+        .timeline-details {
+            margin-left: 1.5rem;
+        }
+
+        .timeline-details p {
+            margin: 0;
+            font-size: 0.9rem;
+            color: var(--muted);
+        }
+
+        .timeline-details ul {
+            margin-top: 0.5rem;
+        }
+        
+        .timeline-details ul li {
+            padding-left: 1.2rem;
+            margin-bottom: 0.25rem;
+        }
+        
+        .timeline-details ul li::before {
+            top: 0.25rem;
+            font-size: 0.8rem;
+        }
+
+        /* Project Cards */
+        .project-card {
+            background-color: var(--bg);
+            padding: 1.5rem;
+            border-radius: var(--card-radius);
+            margin-bottom: 1rem;
+        }
+        
+        .project-card h3 {
+            margin-bottom: 0.5rem;
+        }
+        
+        .project-card p.context {
+            font-style: italic;
+            color: var(--muted);
+            margin-bottom: 0.5rem;
+        }
+
+        .project-card .technologies {
+            font-size: 0.9rem;
+            color: var(--muted);
+            margin-top: 1rem;
+        }
+
+        /* Education List */
+        .education-item {
+            margin-bottom: 1.5rem;
+        }
+        
+        .education-item h3 {
+            margin-bottom: 0.25rem;
+        }
+
+        .education-item p {
+            margin: 0;
+        }
+
+        /* Certifications & Awards */
+        .award-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .award-item svg {
+            flex-shrink: 0;
+        }
+
+        .award-info {
+            line-height: 1.4;
+        }
+
+        .award-info h3 {
+            margin: 0;
+            font-size: 1.2rem;
+        }
+
+        .award-info p {
+            margin: 0;
+            color: var(--muted);
+        }
+
+        /* Print Styles */
+        @media print {
+            body {
+                background-color: white;
+                color: #000;
+                box-shadow: none;
+                padding: 0;
+                font-size: 12pt;
+                line-height: 1.4;
+            }
+
+            main {
+                gap: 1rem;
+            }
+
+            section {
+                background-color: white;
+                box-shadow: none;
+                border-radius: 0;
+                padding: 1rem 0;
+                page-break-inside: avoid;
+            }
+
+            h1, h2, h3 {
+                color: #000;
+            }
+
+            p, ul, dl {
+                color: #333;
+            }
+
+            .profile-image { display: none; }
+            .chip-list { display: none; }
+            .tag-cloud { display: none; }
+            
+            .timeline::before, .timeline-item::before {
+                background-color: #000 !important;
+                border-color: #fff !important;
+            }
+            
+            .chart-container, .project-card {
+                background-color: #f5f5f5;
+                box-shadow: none;
+            }
+            
+            svg rect, svg path, svg circle {
+                stroke: #000 !important;
+                fill: none !important;
+                stroke-width: 1px !important;
+            }
+
+            .radar-chart polygon {
+                fill: none !important;
+                stroke: #000 !important;
+            }
+
+            .radar-chart-labels text {
+                fill: #333 !important;
+            }
+            
+            h2 {
+                border-bottom: 1px solid #ccc;
+            }
+        }
+
+        /* Reduce Motion */
+        @media (prefers-reduced-motion: reduce) {
+            body, section, .chip-list, .timeline, .project-card, .chart-container, .tag-cloud, .award-item {
+                transition: none !important;
+                animation: none !important;
+            }
+        }
+
+        /* SVG Specific Styling */
+        svg {
+            display: block;
+            margin: 0 auto;
+        }
+        
+        .chart-label {
+            font-size: 10px;
+            fill: var(--text);
+        }
+        
+        .chart-bar {
+            fill: var(--accent);
+        }
+        
+        .radar-chart-axis {
+            stroke: var(--muted);
+            stroke-width: 1;
+            fill: none;
+        }
+
+        .radar-chart-line {
+            fill: var(--accent);
+            opacity: 0.6;
+        }
+        
+        .radar-chart-labels text {
+            fill: var(--text);
+            font-size: 12px;
+            text-anchor: middle;
+        }
+
+        .project-badge svg {
+            width: 24px;
+            height: 24px;
+            vertical-align: middle;
+            margin-right: 0.5rem;
+        }
+        
+        /* New Gemini API Section Styles */
+        #api-section h2 {
+            border-bottom: 2px solid var(--divider);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        #generate-btn {
+            background-color: var(--accent);
+            color: var(--bg);
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 9999px;
+            font-weight: bold;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        #generate-btn:hover {
+            background-color: #04b3a4;
+        }
+        
+        #generate-btn:disabled {
+            background-color: var(--muted);
+            cursor: not-allowed;
+        }
+
+        #output-area {
+            margin-top: 1.5rem;
+            padding: 1.5rem;
+            background-color: var(--bg);
+            border-radius: var(--card-radius);
+            white-space: pre-wrap;
+            min-height: 100px;
+            color: var(--muted);
+        }
+
+        #output-area p {
+            margin: 0;
+            color: var(--text);
+        }
+
+        #output-area ul {
+            padding-left: 1rem;
+            list-style-type: disc;
+        }
+        
+        #output-area ul li {
+            padding-left: 0;
+        }
+        
+        .loading-text {
+            display: block;
+            text-align: center;
+            color: var(--muted);
+        }
+        
+        /* Publication item style */
+        .publication-item {
+            margin-bottom: 1.5rem;
+        }
+        .publication-item h3 {
+            margin-bottom: 0.25rem;
+            font-size: 1.2rem;
+        }
+        .publication-details {
+            font-size: 0.9rem;
+            color: var(--muted);
+        }
+        
+    </style>
+</head>
+<body>
+
+    <main>
+        <header>
+            <img class="profile-image" src="https://www.femto-st.fr/sites/default/files/styles/user_annuaire/public/pictures/picture-2423-1710240380.jpg?itok=IwblboH6" alt="A profile picture of Raniya Ketfi">
+            <h1>Raniya Ketfi</h1>
+            <p>Computer Science PhD student</p>
+            <p class="tagline">Dedicated and passionate PhD student in Computer Science with a specialized focus on biomedical data analysis and machine learning.</p>
+        </header>
+
+        <section>
+            <h2>Summary</h2>
+            <p>My research centers on the Characterization and Modelling of Sensor Data for Breast Cancer Detection, aiming to advance early non-invasive breast cancer diagnostic methods.</p>
+            <div class="chip-list">
+                <span class="chip">Biomedical Data Analysis</span>
+                <span class="chip">Machine Learning</span>
+                <span class="chip">Deep Learning</span>
+                <span class="chip">Data Analysis</span>
+                <span class="chip">Data Visualization</span>
+                <span class="chip">Python</span>
+            </div>
+        </section>
+
+        <section>
+            <h2>Skills</h2>
+            <div class="skills-container">
+                <div class="skill-group">
+                    <h3>Hard Skills & Tools</h3>
+                    <div class="tag-cloud">
+                        <span class="tag-cloud-item">Data Analysis</span>
+                        <span class="tag-cloud-item">Machine learning</span>
+                        <span class="tag-cloud-item">Business Intelligence</span>
+                        <span class="tag-cloud-item">Database Management</span>
+                        <span class="tag-cloud-item">Web development</span>
+                        <span class="tag-cloud-item">ERP (Entreprise Ressource Planning)</span>
+                        <span class="tag-cloud-item">Graphical design</span>
+                        <span class="tag-cloud-item">Prototyping</span>
+                        <span class="tag-cloud-item">Python</span>
+                        <span class="tag-cloud-item">R</span>
+                        <span class="tag-cloud-item">MDX</span>
+                        <span class="tag-cloud-item">Pentaho</span>
+                        <span class="tag-cloud-item">Jasper reports</span>
+                        <span class="tag-cloud-item">PDI</span>
+                        <span class="tag-cloud-item">Oracle</span>
+                        <span class="tag-cloud-item">Postgresql</span>
+                        <span class="tag-cloud-item">MySql</span>
+                        <span class="tag-cloud-item">Firebase</span>
+                        <span class="tag-cloud-item">Django</span>
+                        <span class="tag-cloud-item">Javascript</span>
+                        <span class="tag-cloud-item">Php</span>
+                        <span class="tag-cloud-item">Html</span>
+                        <span class="tag-cloud-item">CSS</span>
+                        <span class="tag-cloud-item">Odoo 14</span>
+                        <span class="tag-cloud-item">Adobe XD</span>
+                        <span class="tag-cloud-item">Adobe illustrator</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Experience</h2>
+            <div class="timeline">
+                <article class="timeline-item">
+                    <div class="timeline-details">
+                        <h3>Data/IT Consultant</h3>
+                        <p>KPMG France | From September 2022 to March 2023</p>
+                        <ul>
+                            <li>Comprehensive data analysis and visualization to support decision-making processes for various clients.</li>
+                            <li>Collaborated with clients to understand their data needs, presented analytical findings, and provided actionable recommendations to optimize their business processes.</li>
+                        </ul>
+                    </div>
+                </article>
+                <article class="timeline-item">
+                    <div class="timeline-details">
+                        <h3>Final year project</h3>
+                        <p>Research institute Femto-ST, ENSMM Besançon, France | From September 2021 to July 2022</p>
+                        <ul>
+                            <li>Breast anomaly detection and localization using a smart connected bra (Deep learning models).</li>
+                            <li>Computer aided diagnosis system.</li>
+                        </ul>
+                    </div>
+                </article>
+                <article class="timeline-item">
+                    <div class="timeline-details">
+                        <h3>Internship National Society of Insurance</h3>
+                        <p>SAA, Algiers | From November 2020 to December 2020</p>
+                        <ul>
+                            <li>Practical engineering internship at a national leader insurance company (SAA Algiers) working on a project to implement a web platform for online insurance product subscription.</li>
+                        </ul>
+                    </div>
+                </article>
+                <article class="timeline-item">
+                    <div class="timeline-details">
+                        <h3>Annotator</h3>
+                        <p>RightInnov, Cevital Algiers | From June 2020 to April 2021</p>
+                        <ul>
+                            <li>Data annotation for a project using Data Analysis and Artificial Intelligence for Sentiment Analysis.</li>
+                        </ul>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section>
+            <h2>Education</h2>
+            <div class="grid-layout">
+                <div class="education-item">
+                    <h3>Phd in Computer science</h3>
+                    <p>SupmicroTech Besançon | Since May 2023</p>
+                    <p>Characterization and Modelling of Sensor Data for Breast Cancer Detection</p>
+                </div>
+                <div class="education-item">
+                    <h3>Computer Science Engineering</h3>
+                    <p>Higher National School of Computer science ESI-Algiers | From September 2017 to July 2022</p>
+                </div>
+                <div class="education-item">
+                    <h3>Mathematical speciality baccalaureate</h3>
+                    <p>Lycée Said Hamdine Algiers | From September 2016 to July 2017</p>
+                    <p><strong>Grade:</strong> Very Good - 17,41/20</p>
+                </div>
+            </div>
+        </section>
+        
+        <section>
+            <h2>Publications</h2>
+            <div class="publication-item">
+                <h3><a href="https://doi.org/10.5220/0012309400003657" target="_blank" style="text-decoration: none; color: inherit;">Breast Cancer Detection Using Smart Wearable Devices with Thermal Sensors</a></h3>
+                <p class="publication-details">Published: January 2024</p>
+                <p class="publication-details">DOI: 10.5220/0012309400003657</p>
+            </div>
+             <div class="publication-item">
+                <h3><a href="https://doi.org/10.2139/ssrn.5165560" target="_blank" style="text-decoration: none; color: inherit;">Ms-Dqi: A Methodology for Data Quality Assessment in Medical Sensor Network with a Case Study on Temperature Sensors Network for Breast Cancer Detection</a></h3>
+                <p class="publication-details">Published: January 2025</p>
+                <p class="publication-details">DOI: 10.2139/ssrn.5165560</p>
+            </div>
+        </section>
+
+        <section>
+            <h2>Languages</h2>
+            <dl>
+                <dt>Arabic</dt>
+                <dd>Native</dd>
+                <dt>French</dt>
+                <dd>Proficient</dd>
+                <dt>English</dt>
+                <dd>Proficient</dd>
+            </dl>
+        </section>
+
+        <section>
+            <h2>Voluntary Experience</h2>
+            <ul>
+                <li>
+                    <h3>President Charity club -Sourire à l'innocence</h3>
+                    <p>ESI, Algiers | Since August 2020</p>
+                </li>
+                <li>
+                    <h3>General secretary Sourire à l'innocence</h3>
+                    <p>ESI, Algiers | From September 2019 to July 2020</p>
+                </li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Certifications & Awards</h2>
+            <div class="award-item">
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2L3 6V18L12 22L21 18V6L12 2Z" fill="var(--accent)" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M16 10L12 14L8 10" stroke="var(--surface)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M12 14V7" stroke="var(--surface)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <div class="award-info">
+                    <h3>Student prize My thesis in 180 seconds</h3>
+                    <p>Besançon | March 2024</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- New section for Gemini API integration -->
+        <section id="api-section">
+            <h2>AI-Powered Tools</h2>
+            <button id="generate-btn">Generate ✨ Interview Questions</button>
+            <div id="output-area">
+                <p>Click the button to generate interview questions based on the CV content.</p>
+            </div>
+        </section>
+        
+    </main>
+
+    <script>
+        // Constants for the API call
+        const API_KEY = ""; // This will be provided by the environment
+        const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${API_KEY}`;
+        const CV_DATA = `
+            Raniya Ketfi's Profile:
+            - Title: Computer Science PhD student at SupmicroTech Besançon
+            - Expertise: Biomedical data analysis, machine learning, deep learning, data analysis, data visualization.
+            - Education: PhD in Computer Science (SupmicroTech Besançon), Computer Science Engineering (ESI-Algiers), Mathematical speciality baccalaureate.
+            - Experience: Data/IT Consultant at KPMG France (data analysis, visualization, client collaboration), Final year project at Femto-ST (breast anomaly detection using deep learning), Internship at SAA (web platform development), Annotator at RightInnov (data annotation for sentiment analysis).
+            - Skills: Python, R, MDX, Pentaho, Jasper reports, PDI, Oracle, Postgresql, MySql, Firebase, Django, Javascript, Php, Html, CSS, Odoo 14, Adobe XD, Adobe illustrator.
+            - Publications: 
+                1. Breast Cancer Detection Using Smart Wearable Devices with Thermal Sensors, January 2024, DOI: 10.5220/0012309400003657.
+                2. Ms-Dqi: A Methodology for Data Quality Assessment in Medical Sensor Network with a Case Study on Temperature Sensors Network for Breast Cancer Detection, January 2025, DOI: 10.2139/ssrn.5165560.
+        `;
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const generateBtn = document.getElementById('generate-btn');
+            const outputArea = document.getElementById('output-area');
+
+            // Function to generate content using the Gemini API
+            async function generateInterviewQuestions() {
+                // Prepare the prompt
+                const systemPrompt = "You are a professional hiring manager. Your task is to generate a list of 5-7 interview questions for a candidate based on the provided CV data. Format the response as a simple list. Do not include any introductory or concluding sentences, just the list of questions.";
+                const userQuery = "Based on the following CV, generate professional interview questions to assess the candidate's skills and experience. " + CV_DATA;
+
+                // Prepare the payload for the API call
+                const payload = {
+                    contents: [{ parts: [{ text: userQuery }] }],
+                    tools: [{ "google_search": {} }],
+                    systemInstruction: { parts: [{ text: systemPrompt }] },
+                };
+
+                try {
+                    outputArea.innerHTML = '<p class="loading-text">Generating questions...</p>';
+                    generateBtn.disabled = true;
+
+                    // Make the API call
+                    const response = await fetch(API_URL, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+
+                    if (!response.ok) {
+                        throw new Error(`API call failed with status: ${response.status}`);
+                    }
+
+                    const result = await response.json();
+                    const candidate = result.candidates?.[0];
+
+                    if (candidate && candidate.content?.parts?.[0]?.text) {
+                        const generatedText = candidate.content.parts[0].text;
+                        // Format the output as a list
+                        const questionsHtml = "<ul>" + generatedText.split('\n').map(q => `<li>${q.trim()}</li>`).join('') + "</ul>";
+                        outputArea.innerHTML = questionsHtml;
+                    } else {
+                        outputArea.innerHTML = '<p>Sorry, I couldn\'t generate questions at this time. Please try again.</p>';
+                    }
+                } catch (error) {
+                    console.error('Error generating questions:', error);
+                    outputArea.innerHTML = '<p>An error occurred. Please check the console for details.</p>';
+                } finally {
+                    generateBtn.disabled = false;
+                }
+            }
+
+            // Add event listener to the button
+            if (generateBtn) {
+                generateBtn.addEventListener('click', generateInterviewQuestions);
+            }
+        });
+    </script>
+</body>
+</html>
